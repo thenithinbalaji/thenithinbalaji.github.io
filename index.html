@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithin</title>
+
+    <!-- Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* hide scroll bar */
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            cursor: url("assets/cursor3.svg"), auto;
+        }
+
+        /* hide scroll bar */
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        #name {
+            font-family: 'Passion One', sans-serif;
+        }
+
+        #name-section {
+            background: url("assets/gradientwall.png"), no-repeat;
+            background-size: cover;
+            border-top-left-radius: 9999px;
+            border-bottom-left-radius: 9999px;
+            border-top-right-radius: 9999px;
+            border-bottom-right-radius: 9999px;
+            margin: 2rem;
+        }
+
+        #made-short-text {
+            font-family: 'Caveat', cursive;
+        }
+    </style>
+    <!--  -->
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!--  -->
+
+    <!-- Script -->
+    <script src="index.js" defer></script>
+    <!--  -->
+</head>
+
+<body class="overflow-x-hidden">
+
+    <div class="flex flex-row justify-center lg:justify-between p-10 h-screen text-white duration-1000"
+        id="name-section">
+
+        <div class="lg:flex flex-col justify-center w-fit hidden" id="name-sub-section-1">
+            <p class="rotate-90 tracking-widest h-fit text-2xl font-bold selection:text-black" id="japanese-text">
+                >最小限かつシンプルにする< </p>
+        </div>
+
+        <div class="flex flex-col justify-center selection:bg-none" id="name-sub-section-2">
+            <div class="text-center md:text-left">
+                <p class="font-black uppercase text-lg sm:text-xl tracking-widest name-section-subtext">Hi I am</p>
+                <h1 class="font-black uppercase leading-none tracking-wide text-6xl sm:text-8xl" id="name">
+                    Nithin Balaji
+                </h1>
+                <p class="font-bold uppercase text-xl tracking-widest name-section-subtext">I am a/an
+                    <span class="text-2xl sm:text-4xl font-black tracking-tight" id="whoami">Human</span>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="p-10 border-black duration-1000" id="about-me-section">
+        <div class="text-center">
+            <div class="flex justify-center mb-6 mt-20">
+                <p class="font-bold text-4xl md:text-6xl lg:text-8xl  h-fit my-auto selection:bg-none">
+                    About
+                    Me</p>
+                <img src="./assets/curvy-arrow-circle.svg" alt="curvy-arrow-circle" class="h-32 hidden md:block"
+                    id="curvy-arrow-circle">
+            </div>
+            <div class="flex justify-center">
+                <p class="lg:w-1/2 text-lg text-justify" id="about-me-text">
+                    I'm Nithin Balaji (@thenithinbalaji) - A developer, blogger and ...a lot more based in India. I'm
+                    interested in web, games, tech, open-source, and anything that sparks my creativity. I'm passionate
+                    about engineering and also an information technology graduate. With experience in startups and
+                    freelancing as a developer, I love leveraging my creativity to build innovative and cool stuff. Feel
+                    free to hmu if you have a cool project that I can work on!
+                </p>
+            </div>
+        </div>
+
+        <div class="flex justify-center my-8">
+            <button id="tldr-button"
+                class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto">
+                TL;DR
+            </button>
+
+            <p class="mx-5 my-auto text-2xl" id="made-short-text">
+                <span class="hidden sm:inline"><---- </span> Made short
+                        <span class="font-bold" id="tldr-counter"></span> times
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
