@@ -1,60 +1,22 @@
 tldr_count = 0;
+aboutme = [] //gets loaded in dataload
+phrases = ["Human", "Web Developer"] //rest gets loaded in dataload
+counter = 0 //for TextScamble
 
-const aboutme = [
-    "",
-    "I'm Nithin Balaji (@thenithinbalaji) - A developer based in India. I'm interested in web, games, tech, open-source, and anything that sparks my creativity. I'm an IT graduate with a passion for engineering and experience in startups and freelancing as a developer. Reach out if you want hands-on deck for something cool!",
-    "I'm Nithin Balaji (@thenithinbalaji) - A developer and a freelancer interested in web, games, tech, open-source, and anything that sparks my creativity. I'm an engineering graduate with experience working with startups. Reach out if you want a hands-on deck for something cool!",
-    "I'm Nithin Balaji (@thenithinbalaji) - A developer, an engineering graduate and a freelancer interested in web, games, tech, open-source, and anything that sparks my creativity. Reach out if you want a hands-on deck for something cool!",
-    "I'm Nithin Balaji (@thenithinbalaji) - A developer, an engineering graduate and a freelancer interested in web, games, tech, open-source, and anything that sparks my creativity.",
-    "I'm Nithin Balaji, a developer interested in web, games, tech, blogging and open-source. I love building innovative projects. Reach out if you have a cool project I can work with!",
-    "I'm Nithin Balaji - a developer. I love web, games, tech and open-source.",
-    "A developer. I love web, technology and open-source.",
-    "A developer from India",
-    "A developer",
-    "You know me already, don't you?",
-    "Just reload the page bruh",
-    "Scroll Down WTF",
-    "You just pissed the shortening AI",
-    "A developer",
-    "Hmmmm",
-    "WOWOWOW Jobless",
-    "A developer based in India",
-    "a web dev",
-    "you win, i lost, stop shortening my bio",
-    "Ayo WTF",
-    "I am nobody, is that what you want?",
-    "I'm a loser from India. Are you happy now?",
-    "A developer based in India and I won't short it more than this",
-    "A developer based in India and I won't short it more than this, you heard me right!",
-    "A developer based in India",
-]
+company_count = 0;
+total_company_count = 3;
 
-const phrases = [
-    'Web Developer',
-    'Undergrad',
-    'Freelancer',
-    'Creative Guy',
-    'Writer',
-    'Game Developer',
-    'Tech Enthusiast',
-    'Discord Bot Developer',
-    'Minimalist',
-    'Programmer',
-    'UI/UX Designer',
-    'Nerd',
-    'Coffee Hater',
-    'Cinephile',
-    'Man',
-    'Nomad',
-    'Open Source Contributor',
-    'Blogger',
-    'YouTuber',
-    'Windows Lover',
-    'Geek',
-    'Discord Mod',
-    'Human',
-];
+async function dataload() {
+    const resp1 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/portfolio_v1/about_me.json");
+    const data1 = await resp1.json()
+    aboutme = data1["data"]
 
+    const resp2 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/portfolio_v1/phrases.json");
+    const data2 = await resp2.json()
+    phrases = data2["data"]
+
+    document.getElementById("about-me-text").innerText = aboutme[tldr_count];
+}
 
 class TextScramble {
 
@@ -114,9 +76,8 @@ class TextScramble {
     }
 }
 
-const el = document.querySelector('#whoami')
+const el = document.getElementById('whoami')
 const fx = new TextScramble(el)
-let counter = 0
 
 const next = () => {
     fx.setText(phrases[counter]).then(() => {
@@ -126,9 +87,14 @@ const next = () => {
 }
 
 window.onload = function () {
-    next();
+    next(); // scramble text
+    dataload(); // load data from github
 
-    document.getElementById("tldr-counter").innerText = tldr_count;
+    document.getElementById("tldr-counter").innerText = tldr_count; // initialise TLDR count as 0
+
+    setbdate(); //set bdate
+
+    setcompanylogo();
 }
 
 window.addEventListener('scroll', function () {
@@ -142,8 +108,8 @@ window.addEventListener('scroll', function () {
         name_section.style.borderRadius = '0';
         name_section.style.margin = '0';
 
-        about_me_section.style.borderTopWidth = '4px';
-        about_me_section.style.borderBottomWidth = '4px';
+        // about_me_section.style.borderTopWidth = '4px';
+        // about_me_section.style.borderBottomWidth = '4px';
     }
 
     else {
@@ -153,7 +119,7 @@ window.addEventListener('scroll', function () {
         name_section.style.borderBottomRightRadius = '9999px';
         name_section.style.margin = '2rem';
 
-        about_me_section.style.borderWidth = '0px';
+        // about_me_section.style.borderWidth = '0px';
     }
 
     document.getElementById('curvy-arrow-circle').style.transform = 'rotate(' + scrollPosition + 'deg)';
@@ -168,3 +134,50 @@ document.getElementById("tldr-button").addEventListener('click', function () {
         document.getElementById("about-me-text").innerText = aboutme[tldr_count];
     }
 })
+
+function resetbio() {
+    // play reset animation on curvy circle
+    var element = document.getElementById("curvy-arrow-circle");
+    element.classList.add("playresetbio");
+
+    setTimeout(function () {
+        element.classList.remove("playresetbio");
+    }, 1000);
+
+
+    // sramble about me text
+    tldr_count = 0;
+    document.getElementById("tldr-counter").innerText = tldr_count;
+
+    const text = document.getElementById("about-me-text")
+    const fx = new TextScramble(text)
+    fx.setText(aboutme[tldr_count])
+}
+
+function setbdate() {
+    today = new Date()
+    past = new Date(2002, 8, 3) //dates in js are counted from 0, so 8 is Sept
+
+    var diff = Math.floor(today.getTime() - past.getTime());
+    var day = 1000 * 60 * 60 * 24;
+
+    var days = Math.floor(diff / day);
+    var years = Math.floor(days / 365); // Assuming a year has 365 days
+    var months = Math.floor((days % 365) / 30); // Assuming a month has 30 days
+
+    var message = "IM " + years + "y " + months + "mo " + "&#9864;" + "LD";
+
+    document.getElementById("born-date").innerHTML = message;
+}
+
+function setcompanylogo() {
+    // console.log(company_count)
+
+    document.getElementById("company-logo").src = "./assets/company" + company_count + ".png";
+    company_count = company_count + 1;
+    company_count = company_count % total_company_count;
+
+    setTimeout(function () {
+        setcompanylogo();
+    }, 1000);
+}
