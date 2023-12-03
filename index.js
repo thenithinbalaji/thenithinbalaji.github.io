@@ -1,6 +1,6 @@
 tldr_count = 0;
 aboutme = [] //gets loaded in dataload
-phrases = ["Human", "Web Developer"] //rest gets loaded in dataload
+phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload
 counter = 0 //for TextScamble
 
 company_count = 0;
@@ -165,7 +165,7 @@ function setbdate() {
     var years = Math.floor(days / 365); // Assuming a year has 365 days
     var months = Math.floor((days % 365) / 30); // Assuming a month has 30 days
 
-    var message = "IM " + years + "y " + months + "mo " + "&#9864;" + "LD";
+    var message = "IM " + years + "y & " + months + "mo";
 
     document.getElementById("born-date").innerHTML = message;
 }
