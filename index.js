@@ -165,7 +165,7 @@ function setbdate() {
     var years = Math.floor(days / 365); // Assuming a year has 365 days
     var months = Math.floor((days % 365) / 30); // Assuming a month has 30 days
 
-    var message = "IM " + years + "y & " + months + "mo";
+    var message = "IM " + years + " years" + " " + months + " months";
 
     document.getElementById("born-date").innerHTML = message;
 }
