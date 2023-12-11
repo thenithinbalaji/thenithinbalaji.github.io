@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="./styles.css">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             cursor: url("./assets/cursor3.svg"), auto;
             margin: 0;
@@ -133,9 +137,9 @@
                         </a>
                     </div>
                 </div>
-                <img src="./assets/curvy-arrow-circle.svg" alt="curvy-arrow-circle"
+                <img src="./assets/curvy-arrow-circle.svg" alt="curvy-arrow-circle-1"
                     class="h-16 md:h-32 hover:cursor-pointer selection:bg-none my-auto drop-shadow-md"
-                    id="curvy-arrow-circle" onclick="resetbio()">
+                    id="curvy-arrow-circle-1" onclick="resetbio()">
             </div>
 
             <div class="flex justify-center mt-6">
@@ -169,7 +173,7 @@
         </p>
     </div>
 
-    <div class="py-5 lg:py-10 px-5 lg:px-10">
+    <div class="py-5 lg:py-10 px-5 lg:px-10" id="experience-section">
 
         <div class="text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2">
             <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
@@ -230,7 +234,7 @@
             </p>
         </div>
 
-        <div class="mt-10 flex flex-row sm:flex-row flex-wrap gap-2 justify-center sm:justify-start">
+        <div class="mt-10 flex flex-wrap gap-2 justify-center sm:justify-start">
             <a href="https://github.com/thenithinbalaji" target="_blank" rel="noopener noreferrer"
                 class="cursor-pointer p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none uppercase w-fit">
                 GitHub
@@ -281,10 +285,63 @@
         </p>
     </div>
 
-    <div class="p-5 sm:p-10">
-        <p class="font-bold text-4xl md:text-6xl lg:text-8xl h-fit my-auto selection:bg-none text-center mt-5">
-            Projects
-        </p>
+    <div class="p-5 sm:p-10" id="project-section">
+        <div class="flex flex-wrap justify-center mt-5">
+            <p class="font-bold text-4xl md:text-6xl lg:text-8xl h-fit selection:bg-none text-center my-auto">
+                Projects
+            </p>
+            <img src="./assets/curvy-arrow-circle.svg" alt="curvy-arrow-circle-2"
+                class="h-16 md:h-32 selection:bg-none my-auto drop-shadow-md" id="curvy-arrow-circle-2">
+        </div>
+
+        <div class="mt-5 lg:mt-10 md:flex gap-5">
+            <img src="./assets/gradientwall.png" class="md:w-1/2" id="project-image">
+
+            <div class="mt-5 md:mt-0">
+                <div class="flex flex-wrap gap-2 md:gap-3 justify-end">
+                    <img src="./assets/simple-star-circle.svg" class="h-8 lg:h-12 selection:bg-none my-auto">
+                    <p class="font-black text-2xl md:text-4xl lg:text-6xl h-fit selection:bg-none text-right uppercase my-auto"
+                        id="project-title">
+                        Doge Memer
+                    </p>
+                </div>
+
+                <div class="my-4 flex justify-end">
+                    <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,react,flask,express,nodejs,mongodb,cpp"
+                        alt="tech stack" id="project-stack" />
+                </div>
+
+                <p class="mt-5 text-lg text-justify font-semibold" id="project-desc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quae quasi maxime,
+                    reprehenderit molestiae distinctio, cum quis obcaecati consequuntur repellat exercitationem
+                    reiciendis atque, nisi voluptate provident beatae nihil vitae commodi.
+                </p>
+
+                <div class="flex flex-wrap mt-5 gap-3">
+                    <a href="#" class="text-lg font-normal underline hover:text-xl hover:cursor-pointer duration-500"
+                        id="project-link1">
+                        Link 1&nearrow;
+                    </a>
+                    <a href="#" class="text-lg font-normal underline hover:text-xl hover:cursor-pointer duration-500"
+                        id="project-link2">
+                        Link 2&nearrow;
+                    </a>
+                </div>
+
+                <div class="mt-10 flex flex-wrap gap-2 justify-center sm:justify-end">
+                    <button
+                        class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none">
+                        &lt; &alpha; PREV
+                    </button>
+
+                    <button
+                        class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none">
+                        NEXT &zeta; &gt;
+                    </button>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 

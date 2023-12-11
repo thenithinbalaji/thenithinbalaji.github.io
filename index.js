@@ -1,8 +1,12 @@
 tldr_count = 0;
-aboutme = [] //gets loaded in dataload
-phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload
+
+// github data load
+aboutme = [] // gets loaded in dataload
+phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] // rest gets loaded in dataload
+
 counter = 0 //for TextScamble
 
+// company for experience
 company_count = 0;
 total_company_count = 3;
 
@@ -122,7 +126,8 @@ window.addEventListener('scroll', function () {
         // about_me_section.style.borderWidth = '0px';
     }
 
-    document.getElementById('curvy-arrow-circle').style.transform = 'rotate(' + scrollPosition + 'deg)';
+    document.getElementById('curvy-arrow-circle-1').style.transform = 'rotate(' + scrollPosition + 'deg)';
+    document.getElementById('curvy-arrow-circle-2').style.transform = 'rotate(' + scrollPosition + 'deg)';
 
 });
 
@@ -137,7 +142,7 @@ document.getElementById("tldr-button").addEventListener('click', function () {
 
 function resetbio() {
     // play reset animation on curvy circle
-    var element = document.getElementById("curvy-arrow-circle");
+    var element = document.getElementById("curvy-arrow-circle-1");
     element.classList.add("playresetbio");
 
     setTimeout(function () {
@@ -173,7 +178,7 @@ function setbdate() {
 function setcompanylogo() {
     // console.log(company_count)
 
-    document.getElementById("company-logo").src = "./assets/company" + company_count + ".png";
+    document.getElementById("company-logo").src = "./assets/company/company" + company_count + ".png";
     company_count = company_count + 1;
     company_count = company_count % total_company_count;
 
