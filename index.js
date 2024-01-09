@@ -112,20 +112,19 @@ window.onload = function () {
     setcompanylogo(); //set company logo in experience section
 }
 
-//for blue bubble background in name section
+//for blue bubble background in name section and footer
 window.addEventListener('scroll', function () {
     var scrollPosition = window.scrollY;
-    // console.log(scrollPosition);
+
+    const totalHeight = document.body.scrollHeight;
+    const currentScroll = window.innerHeight + window.scrollY;
 
     const name_section = document.getElementById('name-section');
-    const about_me_section = document.getElementById('about-me-section');
+    const footer = document.getElementById('footer');
 
     if (scrollPosition > 100) {
         name_section.style.borderRadius = '0';
         name_section.style.margin = '0';
-
-        // about_me_section.style.borderTopWidth = '4px';
-        // about_me_section.style.borderBottomWidth = '4px';
     }
 
     else {
@@ -134,8 +133,19 @@ window.addEventListener('scroll', function () {
         name_section.style.borderTopRightRadius = '9999px';
         name_section.style.borderBottomRightRadius = '9999px';
         name_section.style.margin = '2rem';
+    }
 
-        // about_me_section.style.borderWidth = '0px';
+    if (totalHeight - currentScroll < 250) {
+        footer.style.borderRadius = '0';
+        footer.style.margin = '0';
+    }
+
+    else {
+        footer.style.borderTopLeftRadius = '9999px';
+        footer.style.borderBottomLeftRadius = '9999px';
+        footer.style.borderTopRightRadius = '9999px';
+        footer.style.borderBottomRightRadius = '9999px';
+        footer.style.margin = '2rem';
     }
 
     document.getElementById('curvy-arrow-circle-1').style.transform = 'rotate(' + scrollPosition + 'deg)';
