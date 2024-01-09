@@ -610,6 +610,10 @@ video {
     margin-bottom: auto
 }
 
+.mb-5 {
+    margin-bottom: 1.25rem
+}
+
 .mr-2 {
     margin-right: 0.5rem
 }
@@ -1005,6 +1009,10 @@ video {
 
 .duration-500 {
     transition-duration: 500ms
+}
+
+.duration-700 {
+    transition-duration: 700ms
 }
 
 .selection\:bg-none *::selection {
