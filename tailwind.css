@@ -1231,6 +1231,10 @@ video {
         margin-top: 2.5rem
     }
 
+    .lg\:inline-block {
+        display: inline-block
+    }
+
     .lg\:flex {
         display: flex
     }
