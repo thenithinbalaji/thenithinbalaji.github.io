@@ -20,6 +20,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            background-color: rgb(226, 226, 226);
         }
 
         * {
@@ -71,6 +72,20 @@
         .playresetbio {
             animation: resetbio 1s linear infinite;
         }
+
+        .github-projects-container-items {
+            animation: marquee1 60s linear infinite;
+        }
+
+        @keyframes marquee1 {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
     </style>
     <!--  -->
 
@@ -87,7 +102,7 @@
     <!--  -->
 </head>
 
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden m-2 sm:m-5 border-2 border-black rounded-lg bg-white">
 
     <div class="h-full">
         <div class="bg-[#1899f5] flex flex-row justify-center xl:justify-between p-5 sm:p-10 h-screen text-white duration-1000"
@@ -100,21 +115,21 @@
 
             <div class="flex flex-col justify-center selection:bg-none" id="name-sub-section-2">
                 <div class="text-center md:text-left">
-                    <p class="font-black uppercase text-lg sm:text-xl tracking-widest name-section-subtext">Hi I am</p>
-                    <h1 class="font-black uppercase leading-none tracking-wide text-5xl sm:text-8xl" id="name">
+                    <p class="font-black uppercase text-sm sm:text-xl tracking-widest name-section-subtext">Hi I am</p>
+                    <h1 class="font-black uppercase leading-none tracking-wide text-4xl sm:text-8xl" id="name">
                         Nithin Balaji
                     </h1>
-                    <p class="font-bold uppercase text-xl tracking-widest name-section-subtext">I am a/an
-                        <span class="text-2xl sm:text-4xl font-black tracking-tight" id="whoami">Human</span>
+                    <p class="font-bold uppercase text-sm sm:text-xl tracking-widest name-section-subtext">I am a/an
+                        <span class="text-lg sm:text-4xl font-black tracking-tight" id="whoami">Human</span>
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="p-5 sm:p-10 border-black duration-1000" id="about-me-section">
+    <div class="p-5 sm:p-10 border-black duration-1000 my-10" id="about-me-section">
         <div class="text-center">
-            <div class="flex flex-wrap justify-center mt-6">
+            <div class="flex flex-wrap justify-center">
                 <div class="flex flex-col justify-center">
                     <p class="font-bold text-4xl md:text-6xl lg:text-8xl h-fit my-auto selection:bg-none text-left mr-2"
                         id="about-me-heading">About Me
@@ -144,11 +159,12 @@
 
             <div class="flex justify-center mt-6">
                 <p class="xl:w-1/2 text-lg text-justify font-semibold" id="about-me-text">Loading data from GitHub ...
+                    Switch to a faster internet connection / 🤖 Check the console tab
                 </p>
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center my-8">
+        <div class="flex flex-wrap justify-center mt-8">
             <button id="tldr-button"
                 class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none">
                 TL;DR
@@ -169,13 +185,13 @@
     <div class="bg-[#30E462] p-2 md:p-5">
         <p
             class="text-sm sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none text-center sm:text-right uppercase">
-            🦊 PAINTING SITES SINCE 2022
+            🦊 SCULPTING SITES SINCE 2022
         </p>
     </div>
 
-    <div class="py-5 lg:py-10 px-5 lg:px-10" id="experience-section">
+    <div class="py-5 lg:py-10 px-5 lg:px-10 my-10" id="experience-section">
 
-        <div class="text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2">
+        <div class="text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2 mx-auto md:mx-0">
             <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
                 xml:space="preserve" stroke="#ffffff">
@@ -212,8 +228,8 @@
         <div class="mt-5 md:flex gap-5">
             <p class="text-xl font-semibold text-justify md:w-1/2">
                 I began creating games using game engines when I was 15 and got fascinated by the endless possibilities
-                of developing applications and on how creative someone can get in that process. I made games in
-                the next few years and eventhough none of them made it to production, it was a good learning experience
+                of developing applications and how creative someone can get in that process. I made games in
+                the next few years and even though none of them made it to production, it was a good learning experience
                 for me. I took a break for a while, focused on my studies and parallelly started writing tech blogs &
                 remixing songs before I launched my first project, a
                 <a href="https://discordbotlist.com/users/756511707228143646" target="_blank" rel="noopener noreferrer"
@@ -223,11 +239,11 @@
                 In my sophomore, I interned at a small pharmaceutical company named
                 <a href="https://niyamaalifesciences.com/" target="_blank" rel="noopener noreferrer"
                     class="cursor-pointer underline">Niyamaa</a>
-                where I helped the company with buying the domain and developing & hosting their site. Then in my
-                pre-final year, I joined as a Full Stack Developer intern in a web3 startup,
+                where I learnt about buying domains and hosting. Then in my
+                pre-final year, I got the privilege to work as Full Stack Developer Intern for
                 <a href="https://www.ticketh.io/" target="_blank" rel="noopener noreferrer"
-                    class="cursor-pointer underline">Ticketh.io.</a>
-                I worked there for a month and joined as an Engineering Intern in
+                    class="cursor-pointer underline">Ticketh.io</a>, a web3 startup
+                and later as an Engineering Intern in
                 <a href="https://www.balkan.id/" target="_blank" rel="noopener noreferrer"
                     class="cursor-pointer underline">Balkan.id</a>, an IGA startup based in
                 Austin.
@@ -256,6 +272,7 @@
             </a>
 
             <a href="https://raw.githubusercontent.com/thenithinbalaji/assets/main/nithin_dev_resume.pdf"
+                target="_blank" rel="noopener noreferrer"
                 class="cursor-pointer p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none uppercase w-fit">
                 <svg class="sm:inline-block h-5 my-auto hidden" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -274,19 +291,20 @@
     </div>
 
     <div class="bg-[#FF5757] p-2 md:p-5">
-        <p class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none text-left">
+        <p class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none sm:text-left text-center">
             REVERSING A LinkedList {..} TO CENTERING A &lt;div&gt; 🐼
         </p>
     </div>
 
     <div class="bg-[#1899F5] p-2 md:p-5">
-        <p class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none text-right uppercase">
+        <p
+            class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none sm:text-right text-center uppercase">
             🎴 POPPING A STACK TO MAKING POPPING SITES I GOT THEM SKILLS
         </p>
     </div>
 
-    <div class="p-5 sm:p-10" id="project-section">
-        <div class="flex flex-wrap justify-center mt-5">
+    <div class="p-5 sm:p-10 my-10" id="project-section">
+        <div class="flex flex-wrap justify-center">
             <p class="font-bold text-4xl md:text-6xl lg:text-8xl h-fit selection:bg-none text-center my-auto">
                 Projects
             </p>
@@ -294,50 +312,77 @@
                 class="h-16 md:h-32 selection:bg-none my-auto drop-shadow-md" id="curvy-arrow-circle-2">
         </div>
 
-        <div class="mt-5 lg:mt-10 md:flex gap-5">
-            <img src="./assets/gradientwall.png" class="md:w-1/2" id="project-image">
+        <div class="mt-5 lg:mt-10 lg:flex gap-5 justify-between">
+            <img src="./assets/gradientwall.png" class="lg:w-1/2 border-2 border-black rounded-lg shadow-lg"
+                id="project-image">
 
-            <div class="mt-5 md:mt-0">
-                <div class="flex flex-wrap gap-2 md:gap-3 justify-end">
-                    <img src="./assets/simple-star-circle.svg" class="h-8 lg:h-12 selection:bg-none my-auto">
-                    <p class="font-black text-2xl md:text-4xl lg:text-6xl h-fit selection:bg-none text-right uppercase my-auto"
+            <div class="mt-5 lg:my-auto">
+                <div class="flex flex-wrap gap-2 md:gap-3 sm:justify-end justify-center">
+                    <img src="./assets/simple-star-circle.svg"
+                        class="h-8 lg:h-12 selection:bg-none my-auto hidden sm:block">
+                    <p class="font-black text-3xl sm:text-4xl lg:text-6xl h-fit selection:bg-none uppercase my-auto"
                         id="project-title">
-                        Doge Memer
+                        Loading ...
                     </p>
                 </div>
 
-                <div class="my-4 flex justify-end">
-                    <img src="https://skillicons.dev/icons?i=html,css,js,tailwind,react,flask,express,nodejs,mongodb,cpp"
+                <div class="my-4 flex justify-center sm:justify-end">
+                    <img src="https://skillicons.dev/icons?i=cpp,py,js,react,tailwind,nodejs,mongodb,mysql"
                         alt="tech stack" id="project-stack" />
                 </div>
 
                 <p class="mt-5 text-lg text-justify font-semibold" id="project-desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur quae quasi maxime,
-                    reprehenderit molestiae distinctio, cum quis obcaecati consequuntur repellat exercitationem
-                    reiciendis atque, nisi voluptate provident beatae nihil vitae commodi.
+                    Check your network or switch to a faster internet connection to load / 🤖 Check the console tab
                 </p>
 
                 <div class="flex flex-wrap mt-5 gap-3">
-                    <a href="#" class="text-lg font-normal underline hover:text-xl hover:cursor-pointer duration-500"
-                        id="project-link1">
-                        Link 1&nearrow;
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-lg font-normal underline hover:text-xl duration-500" id="project-link1">
+                        <span id="project-link1-name" class="hover:cursor-pointer">Link 1</span>&nearrow;
                     </a>
-                    <a href="#" class="text-lg font-normal underline hover:text-xl hover:cursor-pointer duration-500"
-                        id="project-link2">
-                        Link 2&nearrow;
+                    <a href="#" target="_blank" rel="noopener noreferrer"
+                        class="text-lg font-normal underline hover:text-xl duration-500" id="project-link2">
+                        <span id="project-link2-name" class="hover:cursor-pointer">Link 2</span>&nearrow;
                     </a>
                 </div>
 
                 <div class="mt-10 flex flex-wrap gap-2 justify-center sm:justify-end">
-                    <button
+                    <button id="project-prev-button"
                         class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none">
                         &lt; &alpha; PREV
                     </button>
 
-                    <button
+                    <button id="project-next-button"
                         class="p-4 bg-[#FFFF00] font-bold text-lg active:translate-x-0 active:translate-y-0 duration-200 px-4 py-2 -translate-x-1 -translate-y-1 hover:-translate-x-1.5 hover:-translate-y-1.5 border border-b-4 border-r-4 border-black rounded-lg shadow-lg hover:shadow-sm h-fit my-auto hover:bg-[#FFFF00] selection:bg-none">
                         NEXT &zeta; &gt;
                     </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <div class="text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2 mx-auto md:mx-0">
+                <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
+                    xml:space="preserve" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M16,16.1c-0.9,0-9.1-0.1-9.1-3.3C6.9,8,11,4,16,4s9.1,4,9.1,8.9C25.1,16,16.9,16.1,16,16.1z">
+                            </path>
+                        </g>
+                        <path
+                            d="M27,11.6c0.1,0.4,0.1,0.9,0.1,1.3c0,4.7-7.7,5.3-11.1,5.3S4.9,17.6,4.9,12.9c0-0.4,0-0.9,0.1-1.3C1.8,13,0,15,0,17.3 C0,21.6,7,25,16,25s16-3.4,16-7.8C32,15,30.2,13,27,11.6z M18,22h-4c-0.6,0-1-0.4-1-1s0.4-1,1-1h4c0.6,0,1,0.4,1,1S18.6,22,18,22z">
+                        </path>
+                    </g>
+                </svg>
+                my top GitHub repos
+            </div>
+
+            <div class="github-projects-container my-5 overflow-hidden flex gap-5">
+                <div class="github-projects-container-items flex gap-5">
                 </div>
             </div>
         </div>

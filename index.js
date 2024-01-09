@@ -1,15 +1,18 @@
-tldr_count = 0;
+tldr_count = 0; //for bio shortening
+total_company_count = 3; //for total count of companies in experience section to loop images
 
-// github data load
-aboutme = [] // gets loaded in dataload
-phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] // rest gets loaded in dataload
+//constants for loading data from github assets repo
+aboutme = [] //gets loaded in dataload function
+phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload function
+top_projects = [] //gets loaded in dataload function
+all_projects = [] //gets loaded in dataload function
 
-counter = 0 //for TextScamble
+//counters
+textScramble_counter = 0 //for TextScamble
+company_counter = 0; //for changing image in experience section
+projects_counter = 0; //for changing projects in projects section
 
-// company for experience
-company_count = 0;
-total_company_count = 3;
-
+//dataload function for loading data
 async function dataload() {
     const resp1 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/portfolio_v1/about_me.json");
     const data1 = await resp1.json()
@@ -19,9 +22,21 @@ async function dataload() {
     const data2 = await resp2.json()
     phrases = data2["data"]
 
+    const resp3 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/portfolio_v1/top_projects.json");
+    const data3 = await resp3.json()
+    top_projects = data3["data"]
+    setprojects();
+
+    const resp4 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/repos.json");
+    const data4 = await resp4.json()
+    all_projects = data4
+    all_projects.reverse();
+    setgithubprojects();
+
     document.getElementById("about-me-text").innerText = aboutme[tldr_count];
 }
 
+//textscramble class
 class TextScramble {
 
     constructor(el) {
@@ -80,27 +95,24 @@ class TextScramble {
     }
 }
 
-const el = document.getElementById('whoami')
-const fx = new TextScramble(el)
-
+//for changing subtext whoami in name section
+const fx = new TextScramble(document.getElementById('whoami'))
 const next = () => {
-    fx.setText(phrases[counter]).then(() => {
+    fx.setText(phrases[textScramble_counter]).then(() => {
         setTimeout(next, 1000)
     })
-    counter = (counter + 1) % phrases.length
+    textScramble_counter = (textScramble_counter + 1) % phrases.length
 }
 
 window.onload = function () {
+    document.getElementById("tldr-counter").innerText = tldr_count; // initialise TLDR count as 0
     next(); // scramble text
     dataload(); // load data from github
-
-    document.getElementById("tldr-counter").innerText = tldr_count; // initialise TLDR count as 0
-
     setbdate(); //set bdate
-
-    setcompanylogo();
+    setcompanylogo(); //set company logo in experience section
 }
 
+//for blue bubble background in name section
 window.addEventListener('scroll', function () {
     var scrollPosition = window.scrollY;
     // console.log(scrollPosition);
@@ -140,6 +152,24 @@ document.getElementById("tldr-button").addEventListener('click', function () {
     }
 })
 
+//project navigation button
+document.getElementById("project-prev-button").addEventListener('click', function () {
+    projects_counter -= 1;
+
+    if (projects_counter < 0)
+        projects_counter = top_projects.length - 1;
+
+    setprojects();
+})
+
+//project navigation button
+document.getElementById("project-next-button").addEventListener('click', function () {
+    projects_counter += 1;
+    projects_counter = projects_counter % top_projects.length;
+    setprojects();
+})
+
+//reset bio and tldr
 function resetbio() {
     // play reset animation on curvy circle
     var element = document.getElementById("curvy-arrow-circle-1");
@@ -175,14 +205,79 @@ function setbdate() {
     document.getElementById("born-date").innerHTML = message;
 }
 
+//company logo in experience section
 function setcompanylogo() {
-    // console.log(company_count)
+    // console.log(company_counter)
 
-    document.getElementById("company-logo").src = "./assets/company/company" + company_count + ".png";
-    company_count = company_count + 1;
-    company_count = company_count % total_company_count;
+    document.getElementById("company-logo").src = "./assets/company/company" + company_counter + ".png";
+    company_counter = company_counter + 1;
+    company_counter = company_counter % total_company_count;
 
     setTimeout(function () {
         setcompanylogo();
     }, 1000);
+}
+
+function setprojects() {
+    const project = top_projects[projects_counter];
+
+    document.getElementById("project-title").innerHTML = project["name"];
+    document.getElementById("project-desc").innerHTML = project["description"];
+    document.getElementById("project-stack").src = "https://skillicons.dev/icons?i=" + project["stack"];
+    document.getElementById("project-link1-name").innerHTML = project["link_1_name"];
+    document.getElementById("project-link2-name").innerHTML = project["link_2_name"];
+    document.getElementById("project-link1").href = project["link1"];
+    document.getElementById("project-link2").href = project["link2"];
+
+    document.getElementById("project-image").src = "./assets/projects/" + project["github_id"] + ".png";
+
+    if (project["link_2_name"] == null)
+        document.getElementById("project-link2").style.display = "none";
+
+    else
+        document.getElementById("project-link2").style.display = "block";
+
+}
+
+function setgithubprojects() {
+    const container = document.querySelector('.github-projects-container-items');
+
+    for (i = 0; i < 2; i++)
+        all_projects.forEach(project => {
+            if (project.stargazers_count > 2) {
+                const projectLink = document.createElement('a');
+                projectLink.setAttribute('class', 'p-5 rounded-lg bg-slate-100 flex flex-col hover:bg-slate-200 cursor-pointer text-nowrap border-2 hover:border-black');
+                projectLink.setAttribute('href', project.html_url);
+
+                const projectName = document.createElement('p');
+                projectName.setAttribute('class', 'cursor-pointer font-bold text-lg');
+                projectName.textContent = project.name.split('-').join(' ');
+
+                const projectLanguage = document.createElement('p');
+                projectLanguage.setAttribute('class', 'cursor-pointer');
+                projectLanguage.textContent = project.language;
+
+                const countsContainer = document.createElement('div');
+                countsContainer.setAttribute('class', 'flex gap-5 cursor-pointer');
+
+                const stargazersCount = document.createElement('p');
+                stargazersCount.setAttribute('class', 'cursor-pointer');
+                stargazersCount.textContent = `${project.stargazers_count}⭐`;
+                countsContainer.appendChild(stargazersCount);
+
+                if (project.forks_count > 0) {
+                    const forksCount = document.createElement('p');
+                    forksCount.setAttribute('class', 'cursor-pointer');
+                    forksCount.textContent = `${project.forks_count}🍴`;
+                    countsContainer.appendChild(forksCount);
+                }
+
+                projectLink.appendChild(projectName);
+                projectLink.appendChild(projectLanguage);
+                projectLink.appendChild(countsContainer);
+
+                container.appendChild(projectLink);
+            }
+        });
+
 }
