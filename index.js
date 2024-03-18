@@ -1,6 +1,6 @@
 tldr_count = 0; //for bio shortening
 total_company_count = 3; //for total count of companies in experience section to loop images
-
+let intervalId; // Variable to store the interval ID
 //constants for loading data from github assets repo
 aboutme = [] //gets loaded in dataload function
 phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload function
@@ -105,15 +105,37 @@ const next = () => {
 }
 
 window.onload = function () {
+
+    console.log("\n\n\nHello Curious Human! \n\n\nHow you doin'? Do you have a project that you want me to collaborate on?? Want to thank me for inspiring you??? Want to take me out on a date???? Reach me out at <thenithinbalaji@gmail.com> Yes, I will reply!! \n\nWith Love,\nNithin Balaji\n\n\n")
+
     document.getElementById("tldr-counter").innerText = tldr_count; // initialise TLDR count as 0
     next(); // scramble text
     dataload(); // load data from github
     setbdate(); //set bdate
     setcompanylogo(); //set company logo in experience section
+
+    startInterval(); // to change projects in showcase
+}
+
+// Function to start the interval
+function startInterval() {
+    intervalId = setInterval(function () {
+        projects_counter += 1;
+        projects_counter = projects_counter % top_projects.length;
+        setprojects();
+    }, 3000);
+}
+
+// Function to stop the interval
+function stopInterval() {
+    clearInterval(intervalId);
 }
 
 //for blue bubble background in name section and footer
 window.addEventListener('scroll', function () {
+    // for resetting afer clicking on the card in mobile devices
+    document.querySelector('.github-projects-container-items').style.animationPlayState = 'running';
+
     var scrollPosition = window.scrollY;
 
     const totalHeight = document.body.scrollHeight;
@@ -135,7 +157,7 @@ window.addEventListener('scroll', function () {
         name_section.style.margin = '2rem';
     }
 
-    if (totalHeight - currentScroll < 250) {
+    if (totalHeight - currentScroll < 360) {
         footer.style.borderRadius = '0';
         footer.style.margin = '0';
     }
@@ -160,6 +182,14 @@ document.getElementById("tldr-button").addEventListener('click', function () {
     if (tldr_count < aboutme.length) {
         document.getElementById("about-me-text").innerText = aboutme[tldr_count];
     }
+
+    if (tldr_count == 69) {
+        console.log("\n\nYou pressed TL;DR 69 times?? You must be hella crazy, just like your mom\n\n\n");
+    }
+
+    if (tldr_count == 100) {
+        console.log("\n\n100. The grade your mom got giving me a head.\n\n\n");
+    }
 })
 
 //project navigation button
@@ -170,13 +200,16 @@ document.getElementById("project-prev-button").addEventListener('click', functio
         projects_counter = top_projects.length - 1;
 
     setprojects();
+    stopInterval();
 })
 
 //project navigation button
 document.getElementById("project-next-button").addEventListener('click', function () {
     projects_counter += 1;
     projects_counter = projects_counter % top_projects.length;
+
     setprojects();
+    stopInterval();
 })
 
 //reset bio and tldr
@@ -249,6 +282,14 @@ function setprojects() {
 
 }
 
+document.querySelector('.github-projects-container-items').addEventListener('mouseover', function () {
+    document.querySelector('.github-projects-container-items').style.animationPlayState = 'paused';
+});
+
+document.querySelector('.github-projects-container-items').addEventListener('mouseleave', function () {
+    document.querySelector('.github-projects-container-items').style.animationPlayState = 'running';
+});
+
 function setgithubprojects() {
     const container = document.querySelector('.github-projects-container-items');
 
@@ -256,8 +297,10 @@ function setgithubprojects() {
         all_projects.forEach(project => {
             if (project.stargazers_count > 2) {
                 const projectLink = document.createElement('a');
-                projectLink.setAttribute('class', 'p-5 rounded-lg bg-slate-100 flex flex-col hover:bg-slate-200 cursor-pointer text-nowrap border-2 hover:border-black');
+                projectLink.setAttribute('class', 'p-5 rounded-lg bg-slate-100 flex flex-col hover:bg-slate-200 cursor-pointer text-nowrap border-2 hover:border-black min-w-56');
                 projectLink.setAttribute('href', project.html_url);
+                projectLink.setAttribute('target', '_blank');
+                projectLink.setAttribute('rel', 'noopener noreferrer');
 
                 const projectName = document.createElement('p');
                 projectName.setAttribute('class', 'cursor-pointer font-bold text-lg');

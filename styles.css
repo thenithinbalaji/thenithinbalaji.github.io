@@ -49,8 +49,8 @@ body::-webkit-scrollbar {
     animation: resetbio 1s linear infinite;
 }
 
-.github-projects-container-items {
-    animation: marquee1 60s linear infinite;
+.playmarquee {
+    animation: marquee 20s linear infinite;
 }
 
 @keyframes resetbio {
@@ -67,7 +67,7 @@ body::-webkit-scrollbar {
     }
 }
 
-@keyframes marquee1 {
+@keyframes marquee {
     from {
         transform: translateX(0)
     }
