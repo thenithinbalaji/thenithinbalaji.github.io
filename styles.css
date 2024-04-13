@@ -53,6 +53,10 @@ body::-webkit-scrollbar {
     animation: marquee 20s linear infinite;
 }
 
+.flipped {
+    transform: scaleX(-1);
+}
+
 @keyframes resetbio {
     0% {
         transform: rotateY(0deg);

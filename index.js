@@ -1,18 +1,44 @@
-tldr_count = 0; //for bio shortening
-total_company_count = 3; //for total count of companies in experience section to loop images
-let intervalId; // Variable to store the interval ID
-//constants for loading data from github assets repo
-aboutme = [] //gets loaded in dataload function
-phrases = ["Human", "Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload function
-top_projects = [] //gets loaded in dataload function
-all_projects = [] //gets loaded in dataload function
+//variables
+var tldr_count = 0; //for bio shortening
+var intervalId; // Variable to store the interval ID
+var carousell; //for project carousell
+//
+
+//constants
+const total_company_count = 4; //for total count of companies in experience section to loop images
+const easter_egg_text1 = "\n\n\nHello Curious Human! \n\n\nHow you doin'? Do you have a project that you want me to collaborate on?? Want to thank me for inspiring you??? Want to take me out on a date???? Reach me out at <thenithinbalaji@gmail.com> Yes, I will reply!! \n\nWith Love,\nNithin Balaji\n\n\n";
+const animals = ['🦁', '🐻', '🦊', '🐺', '🐨', '🦝', '🐼'];
+// 
+
+//variables for loading data from github assets repo
+var aboutme = [] //gets loaded in dataload function
+var phrases = ["Web Developer", "Undergrad", "Minimalist", "Coder"] //rest gets loaded in dataload function
+var top_projects = [] //gets loaded in dataload function
+var all_projects = [] //gets loaded in dataload function
+// 
 
 //counters
-textScramble_counter = 0 //for TextScamble
-company_counter = 0; //for changing image in experience section
-projects_counter = 0; //for changing projects in projects section
+var textScramble_counter = 0 //for TextScamble
+var company_counter = 0; //for changing image in experience section
+var projects_counter = 0; //for changing projects in projects section
+// 
 
-//dataload function for loading data
+
+window.onload = function () {
+
+    console.log(easter_egg_text1)
+
+    document.getElementById("tldr-counter").innerText = tldr_count; //display TLDR count as 0 for bio text in about me
+
+    next(); // scramble text in whoami name section
+    dataload(); // load data from github
+    setbdate(); //set bdate in colored divider
+    setcompanylogo(); //set company logo in experience section
+    startInterval(); // to change projects in showcase
+}
+
+
+//dataload function for loading data from Github
 async function dataload() {
     const resp1 = await fetch("https://raw.githubusercontent.com/thenithinbalaji/assets/main/portfolio_v1/about_me.json");
     const data1 = await resp1.json()
@@ -95,7 +121,7 @@ class TextScramble {
     }
 }
 
-//for changing subtext whoami in name section
+//for changing whoami in name section
 const fx = new TextScramble(document.getElementById('whoami'))
 const next = () => {
     fx.setText(phrases[textScramble_counter]).then(() => {
@@ -104,35 +130,37 @@ const next = () => {
     textScramble_counter = (textScramble_counter + 1) % phrases.length
 }
 
-window.onload = function () {
 
-    console.log("\n\n\nHello Curious Human! \n\n\nHow you doin'? Do you have a project that you want me to collaborate on?? Want to thank me for inspiring you??? Want to take me out on a date???? Reach me out at <thenithinbalaji@gmail.com> Yes, I will reply!! \n\nWith Love,\nNithin Balaji\n\n\n")
-
-    document.getElementById("tldr-counter").innerText = tldr_count; // initialise TLDR count as 0
-    next(); // scramble text
-    dataload(); // load data from github
-    setbdate(); //set bdate
-    setcompanylogo(); //set company logo in experience section
-
-    startInterval(); // to change projects in showcase
-}
-
-// Function to start the interval
+//function to start the interval for project carousell
 function startInterval() {
-    intervalId = setInterval(function () {
-        projects_counter += 1;
-        projects_counter = projects_counter % top_projects.length;
-        setprojects();
-    }, 3000);
+
+    // console.log(carousell, "Outside");
+
+    if (carousell != 1) {
+        document.getElementById("project-carousell-log").innerHTML = projects_counter + 1 + " / " + top_projects.length;
+
+        // console.log(carousell, "inside");
+
+        intervalId = setInterval(function () {
+            projects_counter += 1;
+            projects_counter = projects_counter % top_projects.length;
+            setprojects();
+            carousell = 1;
+        }, 3000);
+    }
 }
 
-// Function to stop the interval
+//function to stop the interval for project carousell
 function stopInterval() {
     clearInterval(intervalId);
+    carousell = 0;
+
+    document.getElementById("project-carousell-log").innerHTML = projects_counter + 1 + " / " + top_projects.length + " " + "carousell stopped";
 }
 
-//for blue bubble background in name section and footer
+//all scroll events
 window.addEventListener('scroll', function () {
+
     // for resetting afer clicking on the card in mobile devices
     document.querySelector('.github-projects-container-items').style.animationPlayState = 'running';
 
@@ -175,6 +203,7 @@ window.addEventListener('scroll', function () {
 
 });
 
+//tldr button in about me
 document.getElementById("tldr-button").addEventListener('click', function () {
     tldr_count += 1;
     document.getElementById("tldr-counter").innerText = tldr_count;
@@ -188,7 +217,7 @@ document.getElementById("tldr-button").addEventListener('click', function () {
     }
 
     if (tldr_count == 100) {
-        console.log("\n\n100. The grade your mom got giving me a head.\n\n\n");
+        console.log("\n\n100. Total marks secured by your mom in my test.\n\n\n");
     }
 })
 
@@ -232,6 +261,7 @@ function resetbio() {
     fx.setText(aboutme[tldr_count])
 }
 
+//set bday date for colored divider
 function setbdate() {
     today = new Date()
     past = new Date(2002, 8, 3) //dates in js are counted from 0, so 8 is Sept
@@ -261,7 +291,10 @@ function setcompanylogo() {
     }, 1000);
 }
 
+//set project based on projects_counter's value
 function setprojects() {
+    document.getElementById("project-carousell-log").innerHTML = projects_counter + 1 + " / " + top_projects.length;
+
     const project = top_projects[projects_counter];
 
     document.getElementById("project-title").innerHTML = project["name"];
@@ -290,6 +323,7 @@ document.querySelector('.github-projects-container-items').addEventListener('mou
     document.querySelector('.github-projects-container-items').style.animationPlayState = 'running';
 });
 
+//generating project containers for top repos train like display
 function setgithubprojects() {
     const container = document.querySelector('.github-projects-container-items');
 
@@ -297,7 +331,7 @@ function setgithubprojects() {
         all_projects.forEach(project => {
             if (project.stargazers_count > 2) {
                 const projectLink = document.createElement('a');
-                projectLink.setAttribute('class', 'p-5 rounded-lg bg-slate-100 flex flex-col hover:bg-slate-200 cursor-pointer text-nowrap border-2 hover:border-black min-w-56');
+                projectLink.setAttribute('class', 'p-5 rounded-lg bg-slate-100 flex flex-col cursor-pointer text-nowrap border-2 hover:border-slate-400 min-w-56 hover:scale-[105%] duration-500');
                 projectLink.setAttribute('href', project.html_url);
                 projectLink.setAttribute('target', '_blank');
                 projectLink.setAttribute('rel', 'noopener noreferrer');
@@ -333,4 +367,27 @@ function setgithubprojects() {
             }
         });
 
+}
+
+//for changing animals in colored divider
+function changeAnimal(element) {
+    element.innerHTML = animals[Math.floor(Math.random() * animals.length)];
+}
+
+//expand linkedlist function in colored divider
+expandLinkedList_flag = 0;
+function expandLinkedList() {
+    if (expandLinkedList_flag) {
+        document.getElementById("linkedlistexpand").innerHTML = "{..}";
+        expandLinkedList_flag = 0;
+    }
+
+    else {
+        document.getElementById("linkedlistexpand").innerHTML = "{ private: Node* head; public: LinkedList() { head = nullptr;} ~LinkedList() { Node* current = head;  Node* next; while (current != nullptr) { next = current->next; delete current; current = next; }}};";
+        expandLinkedList_flag = 1;
+    }
+}
+//for rotating the bricks image in experience section
+function flipElement(element) {
+    element.classList.toggle('flipped');
 }

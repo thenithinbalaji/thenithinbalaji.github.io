@@ -50,6 +50,20 @@
 
 <body class="overflow-x-hidden m-2 sm:m-5 border-2 border-black rounded-lg bg-white">
 
+    <!-- Navbar -->
+    <div class="fixed top-0 buttom-auto md:bottom-2 md:top-auto flex justify-center w-full z-50">
+        <nav id="navbar"
+            class="flex bg-white border-2 md:border-2 border-black shadow-lg mr-5 gap-5 p-5 rounded-b-3xl md:rounded-full cursor-auto font-medium">
+            <p><a href="#name-section" class="cursor-pointer hover:underline">Home</a></p>
+            <p><a href="#about-me-section" class="cursor-pointer hover:underline">About</a></p>
+            <p><a href="#experience-section" class="cursor-pointer hover:underline">Experience</a></p>
+            <p><a href="#project-section" class="cursor-pointer hover:underline">Projects</a></p>
+            <p><a href="#footer" class="cursor-pointer hover:underline">Contact</a></p>
+        </nav>
+    </div>
+    <!--  -->
+
+    <!-- Name Section -->
     <div class="h-full">
         <div class="bg-[#1899f5] flex flex-row justify-center xl:justify-between p-5 sm:p-10 h-screen text-white duration-1000"
             id="name-section">
@@ -72,7 +86,9 @@
             </div>
         </div>
     </div>
+    <!--  -->
 
+    <!-- About Me -->
     <div class="p-5 sm:p-10 border-black duration-1000 my-10" id="about-me-section">
         <div class="text-center">
             <div class="flex flex-wrap justify-center">
@@ -104,7 +120,7 @@
             </div>
 
             <div class="flex justify-center mt-6">
-                <p class="xl:w-1/2 text-lg text-justify font-semibold h-[22rem] sm:h-56 overflow-hidden"
+                <p class="xl:w-1/2 md:text-lg text-justify sm:font-semibold h-[22rem] sm:h-56 overflow-hidden cursor-text"
                     id="about-me-text">
                     Loading
                     data from
@@ -126,7 +142,9 @@
             </p>
         </div>
     </div>
+    <!--  -->
 
+    <!-- Colored Dividers -->
     <div class="bg-[#9C74D8] p-2 md:p-5">
         <p class="text-sm sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none text-center sm:text-left"
             id="born-date"></p>
@@ -135,40 +153,22 @@
     <div class="bg-[#30E462] p-2 md:p-5">
         <p
             class="text-sm sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none text-center sm:text-right uppercase">
-            🦊 SCULPTING SITES SINCE 2022
+            <span onclick="changeAnimal(this)" class="cursor-grab">🦊</span> SCULPTING SITES SINCE 2022
         </p>
     </div>
+    <!--  -->
 
+    <!-- Experience -->
     <div class="py-5 lg:py-10 px-5 lg:px-10 my-10" id="experience-section">
 
-        <div
-            class="black-label text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 mb-5 mx-auto md:mx-0">
-            <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
-                xml:space="preserve" stroke="#ffffff">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                <g id="SVGRepo_iconCarrier">
-                    <g>
-                        <path
-                            d="M16,16.1c-0.9,0-9.1-0.1-9.1-3.3C6.9,8,11,4,16,4s9.1,4,9.1,8.9C25.1,16,16.9,16.1,16,16.1z">
-                        </path>
-                    </g>
-                    <path
-                        d="M27,11.6c0.1,0.4,0.1,0.9,0.1,1.3c0,4.7-7.7,5.3-11.1,5.3S4.9,17.6,4.9,12.9c0-0.4,0-0.9,0.1-1.3C1.8,13,0,15,0,17.3 C0,21.6,7,25,16,25s16-3.4,16-7.8C32,15,30.2,13,27,11.6z M18,22h-4c-0.6,0-1-0.4-1-1s0.4-1,1-1h4c0.6,0,1,0.4,1,1S18.6,22,18,22z">
-                    </path>
-                </g>
-            </svg>
-            experience
-        </div>
-
         <p style="line-height: 1.5;"
-            class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl uppercase font-bold my-auto selection:bg-none">
+            class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl uppercase font-bold my-auto selection:bg-none">
             I have experience <a href="https://www.linkedin.com/in/thenithinbalaji/" target="_blank"
                 rel="noopener noreferrer" class="cursor-pointer underline">working</a> for
             <img class="inline-block h-8 md:h-16 lg:h-24 selection:bg-none" id="company-logo">
             and also freelancing
-            <img src="./assets/bricks.svg" class="xl:inline-block h-8 md:h-16 lg:h-24 selection:bg-none hidden">
+            <img src="./assets/bricks.svg" onclick="flipElement(this)"
+                class="xl:inline-block h-8 md:h-16 lg:h-24 selection:bg-none hidden hover:cursor-grab">
             & doing passionate
             <a href="https://github.com/thenithinbalaji?tab=repositories&type=source" target="_blank"
                 rel="noopener noreferrer" class="cursor-pointer underline">open-source
@@ -177,27 +177,33 @@
         </p>
 
         <div class="mt-5 md:flex gap-5">
-            <p class="text-xl font-semibold text-justify md:w-1/2">
-                I began creating games using game engines when I was 15 and got fascinated by the endless possibilities
-                of developing applications and how creative someone can get in that process. I made games in
-                the next few years and even though none of them made it to production, it was a good learning experience
-                for me. I took a break for a while, focused on my studies and parallelly started writing tech blogs &
-                remixing songs before I launched my first project, a
+            <p class="md:text-xl md:font-semibold text-justify md:w-1/2 cursor-text">
+                I began creating games using game 🎮 engines when I was 15 and got fascinated 🤯 by the endless
+                possibilities of developing applications 📱 and how creative 🧠 someone can get in that process. I made
+                games in
+                the next few years and even though none of them made it to production, it was a good learning
+                experience for me. I took a break for a while, focused on my studies 🤓 and parallelly started writing
+                tech blogs &
+                remixing songs 🎹 before I launched my first project, a
                 <a href="https://discordbotlist.com/users/756511707228143646" target="_blank" rel="noopener noreferrer"
-                    class="cursor-pointer underline">discord chatbot</a> at the age of 19.
+                    class="cursor-pointer underline">discord chatbot</a> 🤖 at the age of 19. Since then, I have been
+                developing a lot of cool stuff most of which can be found on my GitHub. 🥹
             </p>
-            <p class="text-lg text-justify my-5 md:my-0 md:w-1/2">
-                In my sophomore, I interned at a small pharmaceutical company named
+
+            <p class="md:text-lg text-justify my-5 md:my-0 md:w-1/2 cursor-text">
+                In my sophomore, I interned at a small pharmaceutical 💊 company named
                 <a href="https://niyamaalifesciences.com/" target="_blank" rel="noopener noreferrer"
                     class="cursor-pointer underline">Niyamaa</a>
-                where I learnt about buying domains and hosting. Then in my
-                pre-final year, I got the privilege to work as Full Stack Developer Intern for
+                for whom I developed a website. Then in my pre-final year, I got the privilege to work as Full Stack
+                Developer 🌐 Intern for
                 <a href="https://www.ticketh.io/" target="_blank" rel="noopener noreferrer"
                     class="cursor-pointer underline">Ticketh.io</a>, a web3 startup
-                and later as an Engineering Intern in
+                and later as an Engineering 🛠️ Intern in
                 <a href="https://www.balkan.id/" target="_blank" rel="noopener noreferrer"
-                    class="cursor-pointer underline">Balkan.id</a>, an IGA startup based in
-                Austin.
+                    class="cursor-pointer underline">Balkan.id</a>, an IGA (Identity Governance and Administration)
+                startup based in Austin. I am currently working as a Software Developer 🕊️ at <a
+                    href="https://home.barclays/" target="_blank" rel="noopener noreferrer"
+                    class="cursor-pointer underline">Barclays</a>.
             </p>
         </div>
 
@@ -240,10 +246,15 @@
             </a>
         </div>
     </div>
+    <!--  -->
 
+    <!-- Colored Dividers -->
     <div class="bg-[#FF5757] p-2 md:p-5">
-        <p class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none sm:text-left text-center">
-            REVERSING A LinkedList {..} TO CENTERING A &lt;div&gt; 🐼
+        <p
+            class="text-xs sm:text-xl md:text-2xl lg:text-4xl font-black selection:bg-none sm:text-left text-center overflow-hidden line-clamp-1">
+            REVERSING A LinkedList <span id="linkedlistexpand" onclick="expandLinkedList()"
+                class="cursor-e-resize">{..}</span> TO CENTERING A &lt;div&gt; <span onclick="changeAnimal(this)"
+                class="cursor-grab">🐼</span>
         </p>
     </div>
 
@@ -253,7 +264,9 @@
             🎴 POPPING A STACK TO MAKING POPPING SITES I GOT THEM SKILLS
         </p>
     </div>
+    <!--  -->
 
+    <!-- Projects -->
     <div class="p-5 sm:p-10 my-10" id="project-section">
         <div class="flex flex-wrap justify-center">
             <p class="font-bold text-4xl md:text-6xl lg:text-8xl h-fit selection:bg-none text-center my-auto">
@@ -263,16 +276,41 @@
                 class="h-16 md:h-32 selection:bg-none my-auto drop-shadow-md" id="curvy-arrow-circle-2">
         </div>
 
-        <div class="mt-5 lg:mt-10 lg:flex gap-5 justify-between" onmouseenter="stopInterval()"
+        <div class="flex gap-3">
+            <div class="black-label text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2">
+                <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
+                    xml:space="preserve" stroke="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <g>
+                            <path
+                                d="M16,16.1c-0.9,0-9.1-0.1-9.1-3.3C6.9,8,11,4,16,4s9.1,4,9.1,8.9C25.1,16,16.9,16.1,16,16.1z">
+                            </path>
+                        </g>
+                        <path
+                            d="M27,11.6c0.1,0.4,0.1,0.9,0.1,1.3c0,4.7-7.7,5.3-11.1,5.3S4.9,17.6,4.9,12.9c0-0.4,0-0.9,0.1-1.3C1.8,13,0,15,0,17.3 C0,21.6,7,25,16,25s16-3.4,16-7.8C32,15,30.2,13,27,11.6z M18,22h-4c-0.6,0-1-0.4-1-1s0.4-1,1-1h4c0.6,0,1,0.4,1,1S18.6,22,18,22z">
+                        </path>
+                    </g>
+                </svg>
+                featured projects
+            </div>
+
+            <div class="my-auto font-semibold text-sm" id="project-carousell-log">
+            </div>
+        </div>
+
+        <div class="mt-5 xl:flex gap-5 justify-between hover:scale-[101%] duration-500" onmouseenter="stopInterval()"
             onmouseleave="startInterval()" ontouchstart="stopInterval()">
             <img src="./assets/gradientwall.png"
-                class="lg:w-1/2 h-fit my-auto border-2 border-black rounded-lg shadow-lg" id="project-image">
+                class="xl:w-1/2 h-fit my-auto border-2 border-black rounded-lg shadow-lg" id="project-image">
 
-            <div class="mt-5 lg:my-auto lg:w-1/2">
+            <div class="mt-5 xl:my-auto xl:w-1/2">
                 <div class="flex flex-wrap gap-2 md:gap-3 sm:justify-end justify-center">
                     <img src="./assets/simple-star-circle.svg"
-                        class="h-8 lg:h-12 selection:bg-none my-auto hidden sm:block">
-                    <p class="font-black text-3xl sm:text-4xl lg:text-6xl h-fit selection:bg-none uppercase my-auto"
+                        class="h-8 lg:h-12 selection:bg-none my-auto hidden sm:block md:hidden 2xl:block">
+                    <p class="font-black text-3xl sm:text-4xl lg:text-6xl h-fit cursor-text uppercase my-auto"
                         id="project-title">
                         Loading ...
                     </p>
@@ -283,7 +321,8 @@
                         alt="tech stack" id="project-stack" />
                 </div>
 
-                <p class="mt-5 text-lg text-justify font-semibold" id="project-desc">
+                <p class="mt-5 md:text-lg text-justify md:font-semibold cursor-text h-24 md:h-auto overflow-hidden"
+                    id="project-desc">
                     Check your network or switch to a faster internet connection to load / 🤖 Check the console tab
                 </p>
 
@@ -313,8 +352,7 @@
         </div>
 
         <div class="mt-10">
-            <div
-                class="black-label text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2 mx-auto md:mx-0">
+            <div class="black-label text-white bg-black rounded-2xl w-fit font-semibold pl-3 pr-2 py-1 my-2">
                 <svg class="inline-block h-5 pr-1" fill="#ffffff" version="1.1" id="Icons"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32"
                     xml:space="preserve" stroke="#ffffff">
@@ -334,37 +372,52 @@
                 my top GitHub repos
             </div>
 
-            <div class="github-projects-container my-5 overflow-hidden flex gap-5">
+            <div class="github-projects-container my-5 overflow-x-hidden flex gap-5 p-2">
                 <div class="github-projects-container-items playmarquee flex gap-5">
                 </div>
             </div>
         </div>
 
     </div>
+    <!--  -->
 
-    <footer id="footer" class="p-10 bg-black text-white duration-100 lg:duration-300">
+    <!-- Footer -->
+    <footer id="footer" class="px-10 pt-10 pb-10 md:pb-20 bg-black text-white duration-100 lg:duration-300">
+
         <div class="md:flex justify-evenly">
             <div class="md:w-1/3">
-                <p class="text-2xl font-bold text-center">Get In Touch</p>
+                <p class="text-2xl font-bold text-center">
+                    Get In Touch
+                </p>
+
                 <p class="text-justify mt-2">
                     Although I'm not currently looking for any new job opportunities, my inbox is always open. Whether
                     you have a question or just want to say hi, I'll try my best to get back to you!
                 </p>
             </div>
+
             <div class="mt-10 md:my-auto h-fit flex gap-5 justify-center">
                 <a href="mailto:thenithinbalaji@gmail.com">
                     <img src="./assets/mail.svg" class="h-10 cursor-pointer hover:scale-110 duration-500" />
                 </a>
+
                 <a href="https://www.linkedin.com/in/thenithinbalaji/" target="_blank" rel="noopener noreferrer">
                     <img src="./assets/linkedin.svg" class="h-10 cursor-pointer hover:scale-110 duration-500" />
                 </a>
+
                 <a href="https://github.com/thenithinbalaji" target="_blank" rel="noopener noreferrer">
                     <img src="./assets/github.svg" class="h-10 cursor-pointer hover:scale-110 duration-500" />
                 </a>
             </div>
         </div>
-        <div class="mt-16 font-bold text-center">Built by Nithin ©️ 2024</div>
+
+        <p class="mt-16 font-bold text-center">
+            Built by Nithin ©️ 2024
+        </p>
+
     </footer>
+    <!--  -->
+
 </body>
 
 </html>
