@@ -5,7 +5,7 @@ var carousell; //for project carousell
 //
 
 //constants
-const total_company_count = 4; //for total count of companies in experience section to loop images
+const total_company_count = 5; //for total count of companies in experience section to loop images
 const easter_egg_text1 = "\n\n\nHello Curious Human! \n\n\nHow you doin'? Do you have a project that you want me to collaborate on?? Want to thank me for inspiring you??? Want to take me out on a date???? Reach me out at <thenithinbalaji@gmail.com> Yes, I will reply!! \n\nWith Love,\nNithin Balaji\n\n\n";
 const animals = ['🦁', '🐻', '🦊', '🐺', '🐨', '🦝', '🐼'];
 // 
@@ -217,7 +217,7 @@ document.getElementById("tldr-button").addEventListener('click', function () {
     }
 
     if (tldr_count == 100) {
-        console.log("\n\n100. Total marks secured by your mom in my test.\n\n\n");
+        console.log("\n\n100???. Look, with your free time, you could probably write a 100-page resume detailing all the things you've accomplished while... uh...  perfecting your resume writing skills this week. Keep at it!\n\n\n");
     }
 })
 
